@@ -1,0 +1,19 @@
+[submodule "skena-sc/lib/forge-std"]
+	path = skena-sc/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "skena-sc/lib/openzeppelin-contracts"]
+	path = skena-sc/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "skena-sc/lib/devtools"]
+	path = skena-sc/lib/devtools
+	url = https://github.com/layerzero-labs/devtools
+[submodule "skena-sc/lib/LayerZero-v2"]
+	path = skena-sc/lib/LayerZero-v2
+	url = https://github.com/layerzero-labs/LayerZero-v2
+[submodule "skena-sc/lib/solidity-bytes-utils"]
+	path = skena-sc/lib/solidity-bytes-utils
+	url = https://github.com/GNSPS/solidity-bytes-utils
+[submodule "skena-sc/lib/openzeppelin-contracts-upgradeable"]
+	path = skena-sc/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+

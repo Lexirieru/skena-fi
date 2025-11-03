@@ -25,7 +25,7 @@ contract SkenaCoreContracts is Script, Helper {
     bool isDeployed = false;
 
     function run() public {
-        vm.createSelectFork(vm.rpcUrl("base_mainnet"));
+        vm.createSelectFork(vm.rpcUrl("hedera_mainnet"));
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
         if (!isDeployed) {
@@ -55,26 +55,55 @@ contract SkenaCoreContracts is Script, Helper {
             positionDeployer = PositionDeployer(BASE_positionDeployer);
             lendingPoolFactory = LendingPoolFactory(BASE_lendingPoolFactoryProxy);
         }
-        lendingPoolDeployer.setFactory(address(proxy));
-        lendingPoolRouterDeployer.setFactory(address(proxy));
 
-        IFactory(address(proxy)).addTokenDataStream(BASE_USDC, BASE_usdc_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_USDT, BASE_usdt_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_ETH, BASE_eth_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_WETH, BASE_eth_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_WBTC, BASE_btc_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDC, BASE_usdc_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDT, BASE_usdt_usd_adapter);
-        IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_WETH, BASE_eth_usd_adapter);
+        if (block.chainid == 295) {
+            lendingPoolDeployer.setFactory(address(proxy));
+            lendingPoolRouterDeployer.setFactory(address(proxy));
 
-        IFactory(address(proxy)).setPositionDeployer(address(positionDeployer));
-        IFactory(address(proxy)).setLendingPoolDeployer(address(lendingPoolDeployer));
-        IFactory(address(proxy)).setLendingPoolRouterDeployer(address(lendingPoolRouterDeployer));
-        IFactory(address(proxy)).setProtocol(address(protocol));
-        IFactory(address(proxy)).setIsHealthy(address(isHealthy));
+            IFactory(address(proxy)).addTokenDataStream(BASE_USDC, BASE_usdc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_USDT, BASE_usdt_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_ETH, BASE_eth_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_WETH, BASE_eth_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_WBTC, BASE_btc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDC, BASE_usdc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDT, BASE_usdt_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_WETH, BASE_eth_usd_adapter);
+
+            IFactory(address(proxy)).setPositionDeployer(address(positionDeployer));
+            IFactory(address(proxy)).setLendingPoolDeployer(address(lendingPoolDeployer));
+            IFactory(address(proxy)).setLendingPoolRouterDeployer(address(lendingPoolRouterDeployer));
+            IFactory(address(proxy)).setProtocol(address(protocol));
+            IFactory(address(proxy)).setIsHealthy(address(isHealthy));
+        } else if (block.chainid == 8453) {
+            lendingPoolDeployer.setFactory(address(proxy));
+            lendingPoolRouterDeployer.setFactory(address(proxy));
+
+            IFactory(address(proxy)).addTokenDataStream(BASE_USDC, BASE_usdc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_USDT, BASE_usdt_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_ETH, BASE_eth_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_WETH, BASE_eth_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_WBTC, BASE_btc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDC, BASE_usdc_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_USDT, BASE_usdt_usd_adapter);
+            IFactory(address(proxy)).addTokenDataStream(BASE_MOCK_WETH, BASE_eth_usd_adapter);
+
+            IFactory(address(proxy)).setPositionDeployer(address(positionDeployer));
+            IFactory(address(proxy)).setLendingPoolDeployer(address(lendingPoolDeployer));
+            IFactory(address(proxy)).setLendingPoolRouterDeployer(address(lendingPoolRouterDeployer));
+            IFactory(address(proxy)).setProtocol(address(protocol));
+            IFactory(address(proxy)).setIsHealthy(address(isHealthy));
+        }
 
         vm.stopBroadcast();
-        if (block.chainid == 8453) {
+        if (block.chainid == 295) {
+            console.log("address public HBAR_liquidator = %s;", address(liquidator));
+            console.log("address public HBAR_isHealthy = %s;", address(isHealthy));
+            console.log("address public HBAR_lendingPoolDeployer = %s;", address(lendingPoolDeployer));
+            console.log("address public HBAR_protocol = %s;", address(protocol));
+            console.log("address public HBAR_positionDeployer = %s;", address(positionDeployer));
+            console.log("address public HBAR_lendingPoolFactoryImplementation = %s;", address(lendingPoolFactory));
+            console.log("address public HBAR_lendingPoolFactoryProxy = %s;", address(proxy));
+        } else if (block.chainid == 8453) {
             console.log("address public BASE_liquidator = %s;", address(liquidator));
             console.log("address public BASE_isHealthy = %s;", address(isHealthy));
             console.log("address public BASE_lendingPoolDeployer = %s;", address(lendingPoolDeployer));

@@ -9,14 +9,22 @@ contract SetOFTAddress is Script, Helper {
     function run() public {
         vm.createSelectFork(vm.rpcUrl("base_mainnet"));
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_USDT, BASE_OFT_USDT_ADAPTER);
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_USDC, BASE_OFT_USDC_ADAPTER);
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_WETH, BASE_OFT_WETH_ADAPTER);
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_WBTC, BASE_OFT_WBTC_ADAPTER);
+        if (block.chainid == 295) {
+            // IFactory(address(HBAR_lendingPoolFactoryProxy)).setOftAddress(HBAR_USDT, HBAR_OFT_USDT_ADAPTER);
+            // IFactory(address(HBAR_lendingPoolFactoryProxy)).setOftAddress(HBAR_USDC, HBAR_OFT_USDC_ADAPTER);
+            // IFactory(address(HBAR_lendingPoolFactoryProxy)).setOftAddress(HBAR_WETH, HBAR_OFT_WETH_ADAPTER);
+            // IFactory(address(HBAR_lendingPoolFactoryProxy)).setOftAddress(HBAR_WBTC, HBAR_OFT_WBTC_ADAPTER);
+        } else if (block.chainid == 8453) {
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_USDT, BASE_OFT_USDT_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_USDC, BASE_OFT_USDC_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_WETH, BASE_OFT_WETH_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_WBTC, BASE_OFT_WBTC_ADAPTER);
 
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_USDT, BASE_OFT_MOCK_USDT_ADAPTER);
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_USDC, BASE_OFT_MOCK_USDC_ADAPTER);
-        IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_WETH, BASE_OFT_MOCK_WETH_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_USDT, BASE_OFT_MOCK_USDT_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_USDC, BASE_OFT_MOCK_USDC_ADAPTER);
+            IFactory(address(BASE_lendingPoolFactoryProxy)).setOftAddress(BASE_MOCK_WETH, BASE_OFT_MOCK_WETH_ADAPTER);
+        }
+
         vm.stopBroadcast();
         console.log("OFT address set successfully!");
     }

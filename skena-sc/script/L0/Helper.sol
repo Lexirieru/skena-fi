@@ -100,12 +100,18 @@ contract Helper {
     address public usdc_usd = 0x2b358642c7C37b6e400911e4FE41770424a7349F;
     address public eth_usd = 0xd2D2CB0AEb29472C3008E291355757AD6225019e;
     address public btc_usd = 0xaD01E27668658Cc8c1Ce6Ed31503D75F31eEf480;
+    address public hbar_usd = 0xAF685FB45C12b92b5054ccb9313e135525F9b5d5;
 
     // address public usdt_usd = 0xf19d560eB8d2ADf07BD6D13ed03e1D11215721F9;
     // address public usdc_usd = 0x7e860098F58bBFC8648a4311b374B1D669a2bc6B;
     // address public eth_usd = 0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70;
     // address public btc_usd = 0x64c911996D3c6aC71f9b455B1E8E7266BcbD848F;
     // *******************
+    address public HBAR_usdc_usd_adapter = 0x04C37dc1b538E00b31e6bc883E16d97cD7937a10;
+    address public HBAR_usdt_usd_adapter = 0x15858A57854BBf0DF60A737811d50e1Ee785f9bc;
+    address public HBAR_eth_usdt_adapter = 0x4Ba8D8083e7F3652CCB084C32652e68566E9Ef23;
+    address public HBAR_btc_usdt_adapter = 0x007F735Fd070DeD4B0B58D430c392Ff0190eC20F;
+    address public HBAR_hbar_usdt_adapter = 0xC327486Db1417644f201d84414bbeA6C8A948bef;
 
     address public BASE_usdc_usd_adapter = 0xEf209d39e91Dbf1a3820228f43c72b5e0676E5a2;
     address public BASE_usdt_usd_adapter = 0xc2995dFc3201f7da467e39851b8EB0c6CbafD5F1;
@@ -115,6 +121,14 @@ contract Helper {
     address public BASE_MOCK_USDC = 0xD2E0F459A2518b9459B9b11dB5Aa014F0BF622A7;
     address public BASE_MOCK_USDT = 0xd61F31154bF292c7bE2fD81fAc9810f6d93Ecc2B;
     address public BASE_MOCK_WETH = 0x7954270F038BFaE7760cCF8D9094745d3E9cf4A3;
+
+    address public HBAR_liquidator = 0x39926DA4905f5Edb956F5dB5F2e2FF044E0882B2;
+    address public HBAR_isHealthy = 0xAE1b8d3B428d6A8F62df2f623081EAC8734168fe;
+    address public HBAR_lendingPoolDeployer = 0xa8e2E14AA272d360235B9444f8214bA5fa2A2888;
+    address public HBAR_protocol = 0x886ba47579DC4f5DcB53ffd20429089A7788C072;
+    address public HBAR_positionDeployer = 0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8;
+    address public HBAR_lendingPoolFactoryImplementation = 0xF0D1c69cc148db2437131a5A736d77FD6fa20B47;
+    address public HBAR_lendingPoolFactoryProxy = 0x487b1e0177B3ac1ACA7e8c353ed0Df133593a8EB;
 
     address public BASE_liquidator = 0x9bB9d97a559A77aF293B94B90CC1452Cf25723dC;
     address public BASE_isHealthy = 0x815a64d69d41495B73f054f1335b8F3244018684;

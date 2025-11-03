@@ -161,7 +161,7 @@ contract LendingPoolFactory is
     ) public initializer {
         __Pausable_init();
         __AccessControl_init();
-        __UUPSUpgradeable_init();
+        // __UUPSUpgradeable_init();
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
